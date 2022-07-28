@@ -1,14 +1,18 @@
+import * as React from 'react';
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
+import CarDetailsInfo from '../components/CarDetailsInfo';
+import { Text, View, Image } from '../components/Themed';
 
-export default function TabTwoScreen() {
+export default function TabOneScreen() {
+  let image_source = '../assets/images/Volvo.jpeg'
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
+      <Text style={styles.title}>Volvo V70 XC 2.4 200 HP</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
+      <Image style= {{width: 400, height: 250}} source={require(image_source)}/>
+      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <CarDetailsInfo carIndex={1}/>
     </View>
   );
 }

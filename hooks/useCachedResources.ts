@@ -2,6 +2,9 @@ import { FontAwesome } from '@expo/vector-icons';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from 'react';
+import CarDetails from '../helpers/CarDetails'
+
+const NUMBER_OF_CARS = 2
 
 export default function useCachedResources() {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -17,6 +20,9 @@ export default function useCachedResources() {
           ...FontAwesome.font,
           'space-mono': require('../assets/fonts/SpaceMono-Regular.ttf'),
         });
+
+        // Initialise empty cars data array
+        CarDetails.getInstance().initialise(NUMBER_OF_CARS)
       } catch (e) {
         // We might want to provide this error information to an error reporting service
         console.warn(e);
